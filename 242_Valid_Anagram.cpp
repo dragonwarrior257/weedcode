@@ -47,3 +47,44 @@ public:
         return hash.empty();
     }
 };
+
+// alternative solution specific to given constraint.
+class Solution_alternative {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.size() != t.size()) return false;
+        
+        /*
+         * Naive hashmap using char based index array.
+         * as we have constraint to use letters from a-z.
+         */
+        std::vector<int> hashmap(26,0);
+        for (auto ch: s){
+            hashmap[ch-'a'] += 1;
+        }
+        
+        /*
+         * if hashmap is nonzero it means letter exist,
+         * we should decrement it.
+         * if it is zero, letter did not exist and it is 
+         * mismatch.
+         */
+        for (auto ch: t){
+            if (hashmap[ch-'a'] != 0){
+                hashmap[ch-'a'] -= 1;
+            }
+            else{
+                return false;
+            }
+        }
+        
+        /* we check if at the end all values are zero and 
+         * comparision successfull.
+         */
+        for (auto i: hashmap){
+            if (i != 0) return false;
+        }
+        return true;
+    }
+};
+
