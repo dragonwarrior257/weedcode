@@ -6,8 +6,8 @@ We pick element one by one and search it in rest of array.
 This Brute force solution cause time limit exceed.
 TIME = O(n^2)
 SPACE = O(1)
-
-class Solution {
+*/
+class Solution_brute {
 public:
     bool containsDuplicate(vector<int>& nums) {
         for(int i=0; i < nums.size(); i++){
@@ -18,7 +18,7 @@ public:
         return false;
     }
 };
-*/
+
 
 /*
 Fast solution:
