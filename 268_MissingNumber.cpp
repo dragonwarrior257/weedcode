@@ -1,4 +1,23 @@
 /*
+using the xor property.
+TIME: O(n)
+SPACE: O(1)
+*/
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n=0;
+        for (int i=0; i <= nums.size(); i++){
+            n ^= i;
+        }
+        int m=0;
+        for (auto k: nums){
+            m ^= k;
+        }
+        return n^m;
+    }
+};
+/*
 Idea here is to sort the array so that index to value mapping is done.
 then compare the index and value, if different we found mismatch.
 TIME: O(nlogn)
